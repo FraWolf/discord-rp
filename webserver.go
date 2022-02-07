@@ -67,7 +67,7 @@ func startWebServer() {
 
 func enableCors(res *http.ResponseWriter, req *http.Request) {
 	origin := req.Header.Get("Origin")
-	allowedOrigins := []string{"https://rp.frawolf.dev", "http://localhost:3000", "http://192.168.178.48:3000"}
+	allowedOrigins := []string{"https://rp.frawolf.dev", "http://localhost:3000"}
 	for _, o := range allowedOrigins {
 
 		if o == origin {
