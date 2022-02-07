@@ -20,11 +20,11 @@ func getJSONFile() {
 		fillJSONData("DISCORD-CLIENT-ID", "Doing anything", "Sample details", "largeImageName", "largeImageText", "smallImageName", "smallImageText", []Button{
 			{
 				Label: "Button #1",
-				Url:   "https://frawolf.dev",
+				Url:   mainWebsite,
 			},
 			{
 				Label: "Button #2",
-				Url:   "https://frawolf.dev",
+				Url:   mainWebsite,
 			},
 		})
 	}
