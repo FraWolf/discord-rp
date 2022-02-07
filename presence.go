@@ -11,7 +11,7 @@ func loadPresence(data JSONData) {
 
 	if data.DiscordClientId == "DISCORD-CLIENT-ID" {
 		dialog.Alert("Please, change Discord Application ID inside data.json file")
-		openMyFolder()
+		openBrowserTab(changeDataWebsite)
 
 	} else {
 
