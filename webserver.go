@@ -9,9 +9,14 @@ func startWebServer() {
 
 	http.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
 		enableCors(&res, req)
+
+		res.Header().Set("Content-Type", "application/json")
+		fmt.Fprint(res, jsonToText(ReturnMessage{Message: "It works"}))
 	})
 
 	http.HandleFunc("/data", func(res http.ResponseWriter, req *http.Request) {
+		enableCors(&res, req)
+
 		data := readJson()
 
 		res.Header().Set("Content-Type", "application/json")
@@ -62,8 +67,9 @@ func startWebServer() {
 
 func enableCors(res *http.ResponseWriter, req *http.Request) {
 	origin := req.Header.Get("Origin")
-	allowedOrigins := []string{"https://rp.frawolf.dev", "http://localhost:3000"}
+	allowedOrigins := []string{"https://rp.frawolf.dev", "http://localhost:3000", "http://192.168.178.48:3000"}
 	for _, o := range allowedOrigins {
+
 		if o == origin {
 			(*res).Header().Set("Access-Control-Allow-Origin", origin)
 			(*res).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
